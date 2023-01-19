@@ -20,6 +20,13 @@ public class PlayerController : MonoBehaviour
     int jumpForce = 1;
     Vector2 _moveDirection;
 
+    [SerializeField]
+    LayerMask _whatIsGround;
+    [SerializeField]
+    float _distanceFromGround;
+    [SerializeField]
+    bool _isGrounded;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -49,20 +56,38 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y - _distanceFromGround, transform.position.z));
+    }
+
     // Update is called once per frame
     void Update()
     {
+        CollisionChecks();
+
         _moveDirection = _move.ReadValue<Vector2>();
     }
 
     private void FixedUpdate()
+    {
+        Move();
+    }
+
+    private void CollisionChecks()
+    {
+        _isGrounded = Physics2D.Raycast(transform.position, Vector2.down, _distanceFromGround, _whatIsGround);
+    }
+    private void Move()
     {
         _rb.velocity = new Vector2(_moveDirection.x * _moveSpeed, _rb.velocity.y);
     }
 
     void Jump(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if(context.performed && _isGrounded)
         _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
     }
 }
+ 
