@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     float _distanceFromGround;
     [SerializeField]
     bool _isGrounded;
+    bool _canDoubleJump = false;
 
     private void Awake()
     {
@@ -86,7 +87,24 @@ public class PlayerController : MonoBehaviour
 
     void Jump(InputAction.CallbackContext context)
     {
-        if(context.performed && _isGrounded)
+        if (context.performed)
+        {
+            if (_isGrounded)
+            {
+                Jump();
+                _canDoubleJump = true;
+            }
+            else if (_canDoubleJump)
+            {
+                _canDoubleJump = false;
+                Jump();
+            }
+        }
+        
+    }
+
+    private void Jump()
+    {
         _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
     }
 }
