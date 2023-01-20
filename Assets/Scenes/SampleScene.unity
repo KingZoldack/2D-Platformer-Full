@@ -347,6 +347,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 520984538, guid: 588d570a52e35c5458973a7d067a2875, type: 3}
+      propertyPath: m_Size.y
+      value: 4.159997
+      objectReference: {fileID: 0}
+    - target: {fileID: 520984538, guid: 588d570a52e35c5458973a7d067a2875, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.34234184
+      objectReference: {fileID: 0}
     - target: {fileID: 520984539, guid: 588d570a52e35c5458973a7d067a2875, type: 3}
       propertyPath: m_GravityScale
       value: 4
@@ -543,6 +551,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: knight
       objectReference: {fileID: 0}
+    - target: {fileID: 1726022557058710, guid: 588d570a52e35c5458973a7d067a2875, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4755194373342512, guid: 588d570a52e35c5458973a7d067a2875, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -586,6 +598,14 @@ PrefabInstance:
     - target: {fileID: 4755194373342512, guid: 588d570a52e35c5458973a7d067a2875, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212140600227288710, guid: 588d570a52e35c5458973a7d067a2875, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212140600227288710, guid: 588d570a52e35c5458973a7d067a2875, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 588d570a52e35c5458973a7d067a2875, type: 3}
