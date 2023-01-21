@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
         if (_rb.velocity.x != 0)
         {
             //Handles animations for in the air and on the ground
-            if (_rb.velocity.y == 0)
+            if (_rb.velocity.y == 0 && !_isWall)
                 ChangeAnimationState(_runAnimation);
             else if (_rb.velocity.y != 0 && !_isWall)
                 ChangeAnimationState(_jumpAnimation);
@@ -193,7 +193,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_isWall && !_isGrounded)
         {
-            _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.99f);
+            _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.95f);
             ChangeAnimationState(_verticalWallAnimation2);
             _canDoubleJump = true;
         }
