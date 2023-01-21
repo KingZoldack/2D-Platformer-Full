@@ -187,6 +187,7 @@ public class PlayerController : MonoBehaviour
     {
         if(!_isWall) //Enables player to jump off walls but only when they face away
         _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
+        ChangeAnimationState(_jumpAnimation);
     }
 
     private void WallHang()
